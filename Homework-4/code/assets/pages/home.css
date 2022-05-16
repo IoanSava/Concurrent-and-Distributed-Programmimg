@@ -1,0 +1,223 @@
+.todo-container {
+    display: grid;
+    gap: 1rem;
+    padding: 2rem;
+    margin: 0 auto;
+    max-width: 500px;
+}
+
+.todo-container hr {
+    margin-top: 0;
+}
+
+.todo-container ul {
+    list-style-position: inside;
+}
+
+.todo-container input {
+    padding: 0.25rem 0.35rem;
+    border-radius: 0;
+}
+
+.todo-container .addition {
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    background: white;
+    padding: 1rem;
+    border-radius: 2px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+    margin-bottom: 1rem;
+}
+
+.todo-container .addition label {
+    margin-bottom: 0;
+}
+
+.todo-container .addition input {
+    border: 2px solid #cfd7f0;
+    border-radius: 2px;
+}
+
+.todo-container .description-filter input {
+    padding: 0.25rem 0.35rem;
+    border-radius: 2px;
+    border: 2px solid #cfd7f0;
+    width: 280px;
+}
+
+.todo-container .todos {
+    display: grid;
+    gap: 1.5rem;
+    padding-bottom: 1rem;
+}
+
+.todo-container .todos .todo {
+    display: grid;
+    grid-template-columns: auto 1fr 0.1fr;
+    grid-template-rows: 3.25rem;
+    align-items: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    border-radius: 2px;
+}
+
+.todo-container .todos .todo > * {
+    height: 100%;
+}
+
+.todo-container .todos .todo label {
+    cursor: pointer;
+    background: #5e7fe1;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.todo-container .todos .todo .todo-details {
+    padding-left: 0.85rem;
+    background-color: #cfd7f0;
+}
+
+.todo-container .todos .todo .todo-details input {
+    border: none;
+    font-style: italic;
+}
+
+.todo-container .todos .todo .todo-details input:read-only {
+    background-color: #cfd7f0;
+}
+
+.todo-container .todos .todo .todo-details p {
+    font-size: 14px;
+}
+
+.todo-container footer {
+    padding-top: 0.25rem;
+    font-size: 90%;
+}
+
+.remove-button {
+    border: none;
+    background-color: #e12a3a;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: large;
+}
+
+.todo-container .checkboxes-filter {
+    margin-top: 20px;
+}
+
+.todo-container .checkboxes-filter label {
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.todo-container .checkboxes-filter label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.todo-container .checkboxes-filter span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+}
+
+.todo-container .checkboxes-filter label:hover input ~ span {
+    background-color: #ccc;
+}
+
+.todo-container .checkboxes-filter label input:checked ~ span {
+    background-color: #5e7fe1;
+}
+
+.todo-container .checkboxes-filter span:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.todo-container .checkboxes-filter label input:checked ~ span:after {
+    display: block;
+}
+
+.todo-container .checkboxes-filter label span:after {
+    left: 6px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.todo-container .checkboxes-filter p {
+    font-size: 18px;
+}
+
+.todo-container .dropdown-sort {
+    margin-bottom: 18px;
+}
+
+.todo-container .dropdown-sort label {
+    font-size: 18px;
+}
+
+.todo-container .dropdown-sort select option {
+    font-size: 18px;
+}
+
+#pagination {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#pagination button {
+    width: 30px;
+    height: 30px;
+
+    appearance: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    background-color: #cfd7f0;
+
+    margin: 5px;
+    transition: 0.4s;
+
+    font-size: 18px;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+#pagination button:hover {
+    background-color: #5e7fe1;
+}
+
+#pagination button.active {
+    background-color: #5e7fe1;
+    box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,77 @@
+<link rel="stylesheet" href="assets/pages/home.css">
+<webc-container controller="TodoListController" class="todo-container">
+    <header>
+        <h2>TODO Application</h2>
+    </header>
+
+    <hr>
+
+    <!-- Adding items -->
+    <section class="addition">
+        <label for="@item.id">Create your TODO:</label>
+        <input data-view-model="@item" data-tag="create-todo">
+    </section>
+
+    <!-- Description Filtering -->
+    <section class="description-filter">
+        <input data-view-model="@descriptionFilter" data-tag="description-filter-todos">
+    </section>
+
+    <!-- Checkbox Filtering -->
+    <section class="checkboxes-filter">
+        <p>Select the type of items:</p>
+        <label>Checked items
+            <input type="checkbox" data-view-model="@checkedCheckboxFilter" data-tag="checked-filter-todos">
+            <span></span>
+        </label>
+        <label>Unchecked items
+            <input type="checkbox" data-view-model="@uncheckedCheckboxFilter" data-tag="unchecked-filter-todos">
+            <span></span>
+        </label>
+    </section>
+
+    <!-- Dropdown Sorting -->
+    <section class="dropdown-sort">
+        <form>
+            <label for="sorting-todos">Sort by:</label>
+            <br />
+            <select name="sorting-todos" id="sorting-todos" data-view-model="@sort" data-tag="sort-todos">
+                <option value="description_asc">Description (Asc)</option>
+                <option value="description_desc">Description (Desc)</option>
+                <option value="creation_asc">Creation Date (Asc)</option>
+                <option value="creation_desc">Creation Date (Desc)</option>
+            </select>
+        </form>
+    </section>
+
+    <!-- Render each item from the model -->
+    <section class="todos" data-for="@items" data-tag="items">
+        <div class="todo">
+            <label>
+                <input type="checkbox" data-view-model="@checkbox">
+            </label>
+            <div class="todo-details">
+                <input type="text" data-view-model="@input">
+                <p>Creation date: {{ @creationDate }}</p>
+            </div>
+            <button type="button" class="remove-button" data-view-model="@removeButton">X</button>
+        </div>
+
+        <div slot="no-data">{{ @no-data }}</div>
+    </section>
+
+    <!-- Pagination -->
+    <section id="pagination-container">
+        <div id="pagination"></div>
+    </section>
+
+    <hr>
+
+    <footer>
+        <strong>HINTs:</strong>
+        <ul>
+            <li tabindex="0">Save: Unfocus or press <code>Tab</code>!</li>
+            <li>Edit: double click on TODO!</li>
+        </ul>
+    </footer>
+</webc-container>
